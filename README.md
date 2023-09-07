@@ -18,5 +18,5 @@ helm repo add kube-secret https://baowei.github.io/secret-eso
 
 ## Install
 ```
-helm install my-release kube-secret/secret-eso --version 0.1.1
+helm install my-release kube-secret/secret-eso --version 0.1.2
 ```
