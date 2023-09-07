@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  secret-eso:
+  - apiVersion: v2
+    appVersion: 1.1.0
+    created: "2023-09-07T04:44:14.568494954Z"
+    description: Manage Kubernetes secrets for Extenal secret operator
+    digest: c27cc0e55810c850c5cf2adedbee932f83007e26a507406a29a18e5a3ab4666e
+    name: secret-eso
+    type: application
+    urls:
+    - https://github.com/baowei/secrets-eso/releases/download/secret-eso-0.1.2/secret-eso-0.1.2.tgz
+    version: 0.1.2
+generated: "2023-09-07T04:44:14.568499754Z"
