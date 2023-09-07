@@ -13,10 +13,10 @@ EOF
 
 ## add chart repo
 ```
-helm repo add kube-secret https://baowei.github.io/secret-eso
+helm repo add kube-secret https://baowei.github.io/secrets-eso
 ```
 
 ## Install
 ```
-helm install my-release kube-secret/secret-eso --version 0.1.2
+helm install my-release kube-secret/secrets-eso --version 0.1.2
 ```
