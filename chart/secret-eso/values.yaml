@@ -1,0 +1,48 @@
+## Secrets store provider
+Store:
+  provider:
+    vault:
+      auth:
+        tokenSecretRef:
+          key: token
+          name: vault-token
+      path: cicd
+      server: https://vault.example.com
+      version: v2
+
+## https://github.com/jenkinsci/kubernetes-credentials-provider-plugin/blob/master/docs/examples/gitHubApp.yaml
+externalSecrets:
+  ## Date from secret store.
+  - dataFrom:
+      - extract:
+          key: jenkins/githubapp_token
+        rewrite:
+          - regexp:
+              source: (.*)
+              target: prod_$1
+    ## Generate kubernetes secrets name and policy
+    target:
+      name: jenkins-githubapp-token
+      template:
+        type: Opaque
+        metadata:
+          labels:
+            jenkins.io/credentials-type: gitHubApp
+          annotations:
+            jenkins.io/credentials-description: "credentials from Kubernetes"
+  - dataFrom:
+      - extract:
+          key: jenkins/vault_token
+        rewrite:
+          - regexp:
+              source: (.*)
+              target: prod_$1
+    target:
+      name: jenkins-vault-token
+      template:
+        type: Opaque
+        metadata:
+          labels:
+            jenkins.io/credentials-type: secretText
+          annotations:
+            jenkins.io/credentials-description: "secret text credential from Kubernete"
