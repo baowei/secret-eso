@@ -1,6 +1,0 @@
-{{- $name := include "Secret-eso.fullname" . }}
-{{- $namespace :=  .Release.Namespace }}
-1. Generate kubernetes secrets name and policy
-{{- range .Values.externalSecrets }}
-  secretsName: {{ $name }}-{{ .target.name }} in nameSpace: {{ $namespace }}
-{{- end }}
